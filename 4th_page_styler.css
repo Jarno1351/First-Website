@@ -1,0 +1,353 @@
+:root{
+    --accent_color: rgb(39, 39, 255);
+    --primary_color: rgb(235, 235, 235);
+    --accent_color_hover: rgb(11, 11, 216);
+}
+*, *::before, *::after{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body{
+    font-size: 2em;
+    font-family: sans-serif;
+    padding: 0;
+    max-height: 100svh;
+    margin: 0;
+}
+
+.game{
+    display: flex;
+    margin-top: 0.5rem;
+    justify-content: center;
+    gap: 0.5em;
+}
+
+#count{
+    display: flex;
+    justify-content: center;
+    font-size: 7rem;
+
+}
+#submit_age, #submit_button{
+    padding: 0.5em;
+    border-radius: 7px;
+    border: none;
+    font-size: 0.46em;
+    background-color: rgb(39, 39, 255);
+    color: rgb(235, 235, 235);
+    transition: 150ms;
+}
+
+.button, nav button{
+    padding: 0.5em;
+    border: none;
+    font-size: 0.7em;
+    text-align: center;
+    border-radius: 7px;
+    background-color: rgb(39, 39, 255);
+    color: rgb(235, 235, 235);
+    transition: 150ms;
+}
+
+.button:hover,nav button:hover, #submit_age:hover, #submit_button:hover{
+    background-color: rgb(11, 11, 216);
+    color: white;
+    box-shadow: 0px 6px 6px rgb(63, 55, 55);
+}
+
+#prime_number_gen, .input_text{
+    border: 2px solid rgb(0, 0, 99);
+    font-size: 0.45em;
+    width: 20rem;
+    height: 2em;
+    background: rgb(235, 236, 255);
+    border-radius: 4px;
+}
+.prime_number{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+}
+
+.primeInput{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5em;
+}
+
+#prime_number_gen:invalid, .input_text:invalid{
+    border: 2px solid rgb(219, 0, 0);
+}
+
+#prime_num_text{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+nav{
+    top: 0;
+    position: sticky;
+    display: flex;
+    padding: 0.3em;
+    justify-content: space-between;
+    background-color: rgb(87, 132, 255);
+}
+button.is_active{
+    background-color: rgb(19, 4, 236);
+    font-weight: 700;
+    box-shadow: 0px 3px 2px black;
+}
+
+.text_first{
+    font-size: 0.6em;
+    margin: 0;
+    padding: 0;
+    transition: 150ms;
+}
+
+.login{
+    padding: 0.5em 0 0.5em 0;
+    text-align: center;
+    transition: 150ms;
+}
+
+.text_first:hover{
+    cursor: pointer;
+    font-weight: 700;
+}
+#myP{
+    font-size: 0.75em;
+    font-weight: 600;
+}
+
+#reset{
+    animation-play-state: paused;
+    transition: 150ms;
+}
+
+#reset:hover{
+    animation-duration: 1s;
+    animation-name: spin;
+    animation-fill-mode: forwards;
+    animation-play-state: running;
+    transition: 150ms;
+    
+}
+
+@keyframes spin{
+    0%{
+        
+    }
+
+    100%{
+        transform: rotate(360deg);
+        border-radius: 40%;
+    }
+}
+
+
+@media only screen and (max-width:675px){
+    nav{
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        justify-items: flex-start;  
+        gap: 5px;  
+    }
+    #button-1, #button-2, #button-3{
+        width: 100%;
+        
+    }
+}
+
+
+/*=================Number Guessing Game===============================*/
+.wrapper_game{
+    background-image: url(images/background.avif);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 11.5em;
+    position: relative;
+}
+
+.guessingWrapper{
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 10px;
+    height: 320px;
+    align-items: center;
+    backdrop-filter: blur(3px);
+    background-color: rgba(173, 171, 171, 0.2);
+    margin: 0.5em;
+    padding: 2rem;
+    width: 90%;
+    border: 2px solid rgb(206, 215, 255);
+    border-radius: 15px;
+    color: rgb(239, 244, 255);
+    gap: 8px;
+    overflow: hidden;
+}
+
+#numberGuess{
+    width: 18rem;
+    height: 1.8em;
+    border-radius: 5px;
+    border: 2px solid white;
+    background-color: rgba(241, 247, 255, 0.219);
+    text-align: center;
+    font-size: 0.8em;
+    color: rgb(0, 37, 117);
+    font-weight: 600;
+    position: relative;
+    transition: 150ms ease-in;
+}
+
+#numberGuess:focus{
+    outline: none;
+    border: 2px solid rgb(224, 224, 255);
+    background-color: rgba(241, 247, 255, 0.5)
+}
+
+.labelForGame{
+    position: absolute;
+    font-size: 0.6em;
+    font-weight: 600;
+    top: 2.55em;
+    transform: translateX(-5em);
+    transition: 200ms;
+}
+
+.wrapperInt{
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#numberGuess:focus ~ .labelForGame{
+    position: absolute;
+    top: 0.1em;
+    transform: translateX(-7em);
+    background-color: rgb(43, 90, 245);
+    font-weight: 570;
+    padding: 0.4em;
+    font-size: 0.5em;
+    border-radius: 8px;
+}
+#numberGuess:focus ~ .labelForGame::before{
+    content: "";
+    position: absolute;
+    border-top: 20px solid rgb(43, 90, 245);
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    width: 0;
+    height: 0;
+    transform: translateY(1rem);
+}
+
+
+
+#submitForGame{
+    border-radius: 6px;
+    font-size: 0.57em;
+    border: none;
+    padding: 0.5em 1em 0.5em 1em;
+    background-color: var(--accent_color);
+    color: var(--primary_color);
+    transition: 150ms ease;
+}
+
+#submitForGame:hover{
+    background-color: var(--accent_color_hover);
+    transform: translateY(-2px);
+
+}
+
+.notif{
+   position: absolute; 
+   width: 20rem;
+   border-radius: 15px;
+   height: 100px;
+   top: 0.5px;
+   right: -0.5px;
+   background-image: linear-gradient(60deg, var(--accent_color) 30%, #401fff);
+   display: none;
+   flex-direction: column;
+   align-items: center;
+   justify-content: center;
+   padding: 0.4rem;
+   gap: 0.4em;
+   box-shadow: -2px 2px 8px 4px rgba(0, 0, 0, 0);
+   transition: 150ms ease;
+   animation: slidein 0.5s;animation-timing-function: ease;
+
+}
+.notif:hover{
+    box-shadow: -2px 2px 8px 4px rgba(0, 0, 0, 0.301);
+}
+
+#notif{
+    text-align: center;
+    margin-top: 0.8em;
+    font-size: 0.7em;
+    font-weight: 500;
+    animation: slidein 0.5s;
+    animation-timing-function: ease;
+    animation-delay: 100ms;
+}
+@keyframes slidein{
+    from{
+        transform: translateX(180px);
+        opacity: 0;
+    }
+
+    to{
+        transform: translateX(0px);
+        opacity: 1;
+    }
+}
+
+@keyframes slideout{
+    from{
+        transform: translateX(0px);
+        opacity: 1;
+    }
+
+    to{
+        transform: translateX(180px);
+        opacity: 0;  
+    }
+}
+
+
+#confirmNotif{
+    border-radius: 15px;
+    width: 70px;
+    height: 30px;
+    position: relative;
+    border: none;
+    background-color: rgb(48, 206, 0);
+    color: var(--primary_color);
+    font-weight: 700;
+    transition: 150ms ease-in;
+}
+
+#confirmNotif:hover{
+    top: -2px;
+    background-color: rgb(29, 122, 0);
+    box-shadow: 0px 3px 2px rgba(0, 0, 0, 0.226);
+}
+/*=======================================================*/
