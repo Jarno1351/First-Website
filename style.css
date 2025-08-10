@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 *{
     font-family: Verdana, Arial, Sans-serif;
 }
@@ -91,3 +92,98 @@ footer{
 .dropdown:hover .content{
     display: block;
 }
+=======
+*{
+    font-family: Verdana, Arial, Sans-serif;
+}
+
+footer{
+    margin-top: 20px;
+}
+.buttons:hover{
+    font-size: 1.7em;
+    background-color: rgb(20, 50, 94);
+}
+
+.buttons{
+    font-size: 20px;
+    font-family: Verdana, Arial, Sans-serif;
+    border-radius: 10px;
+    border-style: dashed;
+    background-color: rgba(13, 38, 75, 0.658);
+    color: rgb(255, 255, 255);
+    padding: 5px;
+    margin-left: 5px;
+}
+
+.buttons:active,:visited{
+    background-color: rgb(24, 8, 59);
+}
+
+.pagination{
+    text-align: center;
+}
+
+.pagination a{
+    font-size: 1em;
+    color: black;
+    text-decoration: none;
+    padding:15px 30px;
+    display: inline-block;
+}
+
+.pagination a.isActive{
+    background-color: rgb(52, 129, 59);
+    font-size: 1.2em;
+    border-radius: 20px;
+    color: white;
+}
+.pagination a.invalid{
+    color: rgba(0, 0, 0, 0.37);
+}
+
+
+.pagination a:hover:not(.isActive,.invalid){
+    background-color: rgb(143, 143, 143);
+    font-size: 1.2em;
+    border-radius: 20px;
+    cursor: pointer;
+
+}
+
+.dropdown{
+    display: inline-block;
+}
+
+.dropdown a{
+    color: rgb(178, 252, 215);
+    text-decoration: none;
+}
+
+.dropdown a:hover{
+    font-size: 1.2em;
+    font-style: oblique;
+    color: rgb(193, 176, 253);
+}
+
+.dropdown a:active{
+    font-size: 1em;
+    font-style: oblique;
+    color: rgb(48, 18, 35);
+}
+
+.dropdown .content{
+    display: none;
+    background-color: rgb(85, 85, 85);
+    position: absolute;
+    width: 500px;
+    border-bottom-right-radius: 10px;
+    border-top-right-radius: 10px;
+    color: antiquewhite;
+    box-shadow: 4px 4px 7px rgba(0, 0, 0, 0.445);
+}
+
+.dropdown:hover .content{
+    display: block;
+}
+>>>>>>> 417801b5ec9108e34b75ef8c023f07e74ac3d116
